@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -7,10 +8,13 @@ namespace Old_Game_Conversion
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
+        public SpriteFont font;
+        public Texture2D texture;
+        public StateManager stateManager;
 
         public Game1()
         {
@@ -27,7 +31,8 @@ namespace Old_Game_Conversion
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            IsMouseVisible = true;
+            stateManager = new StateManager(this, false);
             base.Initialize();
         }
 
@@ -39,7 +44,10 @@ namespace Old_Game_Conversion
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("Verdana");
+            texture = Content.Load<Texture2D>("texture");
 
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -59,12 +67,22 @@ namespace Old_Game_Conversion
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
+            UpdateInput();
+            UpdateGameWorld(gameTime);
+            Draw(gameTime);
 
             base.Update(gameTime);
+        }
+
+        private void UpdateInput()
+        {
+            stateManager.CheckInteractions();
+            
+        }
+
+        private void UpdateGameWorld(GameTime gameTime)
+        {
+            stateManager.Update(gameTime, this);
         }
 
         /// <summary>
@@ -74,10 +92,11 @@ namespace Old_Game_Conversion
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.Begin();
+            stateManager.RenderState(gameTime);
             // TODO: Add your drawing code here
-
             base.Draw(gameTime);
+            spriteBatch.End();
         }
     }
 }
