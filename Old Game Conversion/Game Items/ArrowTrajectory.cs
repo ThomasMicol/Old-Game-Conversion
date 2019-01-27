@@ -53,5 +53,23 @@ namespace Old_Game_Conversion.Game_Items
             Vector2 split = new Vector2(1 - (float)ratio, (float)ratio);
             return split;
         }
+
+        public float GetShotPower()
+        {
+            Point startPoint = GetInitialMouseState().Position;
+            Point endPoint = GetFinalMouseState().Position;
+            float adjacent = startPoint.X - endPoint.X;
+            float opposite = startPoint.Y - endPoint.Y;
+            float hypotenuse = (float)Math.Sqrt(Math.Pow((double)opposite, 2) + (double)Math.Pow(adjacent, 2));
+            float shotPower = hypotenuse / 200;
+            if(shotPower > 1)
+            {
+                return 1;
+            }else
+            {
+                return shotPower;
+            }
+
+        }
     }
 }

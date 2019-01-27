@@ -10,6 +10,7 @@ namespace Old_Game_Conversion.Game_Items
 {
     class Player : Entity
     {
+        protected int shotFlatPower = 12;
 
         public Player(Vector2 aPositon, Game1 aContext)
         {
@@ -27,7 +28,13 @@ namespace Old_Game_Conversion.Game_Items
 
         public void Fire(ArrowTrajectory aTraj)
         {
-            context.stateManager.AddEntity(new Arrow(new Vector2(position.X + 10, position.Y + 30), 90, 10, aTraj.GetPowerSplit()));
+            float shotPower = CalcShotPower(aTraj.GetShotPower());
+            context.stateManager.AddEntity(new Arrow(new Vector2(position.X + 10, position.Y + 30), 90, shotPower, aTraj.GetPowerSplit()));
+        }
+
+        protected float CalcShotPower(float powerMult)
+        {
+            return shotFlatPower * powerMult;
         }
     }
 }
