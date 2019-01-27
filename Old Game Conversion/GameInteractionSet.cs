@@ -11,6 +11,8 @@ namespace Old_Game_Conversion
 {
     class GameInteractionSet : InteractionSet
     {
+        protected ArrowTrajectory arrowTrajectory = new ArrowTrajectory();
+
         public override List<GuiElement> GetGUIelements()
         {
             List<GuiElement> guiElements = new List<GuiElement>
@@ -24,8 +26,19 @@ namespace Old_Game_Conversion
         {
             if (!CheckLastButtonPressed(Keys.Space) && Keyboard.GetState().IsKeyDown(Keys.Space))
                 game.stateManager.ChangeState(StateEnum.MenuState);
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-                game.stateManager.GetPlayer().Fire();
+            if (Mouse.GetState().LeftButton == ButtonState.Released)
+            {
+                if (arrowTrajectory.GetInitialMouseStateIsSet() == true)
+                {
+                    arrowTrajectory.SetFinalMouseState(Mouse.GetState());
+                    game.stateManager.GetPlayer().Fire(arrowTrajectory);
+                    arrowTrajectory.Clear();
+                }
+            }
+            else if(arrowTrajectory.GetInitialMouseStateIsSet() == false)
+            {
+                arrowTrajectory.SetInitialMouseState(Mouse.GetState());
+            }
             base.CheckInteractions(game);
             SetLastButtonPressed(Keyboard.GetState());
         }

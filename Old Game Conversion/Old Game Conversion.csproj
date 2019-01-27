@@ -45,6 +45,7 @@
     <Compile Include="Entity.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Game Items\Arrow.cs" />
+    <Compile Include="Game Items\ArrowTrajectory.cs" />
     <Compile Include="Game Items\CurrencyLabel.cs" />
     <Compile Include="Game Items\Player.cs" />
     <Compile Include="GameStats.cs" />

@@ -38,7 +38,6 @@ namespace Old_Game_Conversion
 
         protected virtual void ApplyGravity(GameTime gameTime)
         {
-            System.Diagnostics.Debug.WriteLine("Vertical Velocity: " + velocity.Y.ToString() + " - Horizontal Velocity: " + velocity.X.ToString());
             velocity.Y -= (float)mass * (float)0.0982;
         }
     }

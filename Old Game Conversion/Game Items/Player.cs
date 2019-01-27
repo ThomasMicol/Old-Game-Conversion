@@ -25,9 +25,9 @@ namespace Old_Game_Conversion.Game_Items
             base.Draw(gameTime, context);
         }
 
-        public void Fire()
+        public void Fire(ArrowTrajectory aTraj)
         {
-            context.stateManager.AddEntity(new Arrow(new Vector2(position.X + 10, position.Y + 20), 90, 5));
+            context.stateManager.AddEntity(new Arrow(new Vector2(position.X + 10, position.Y + 30), 90, 10, aTraj.GetPowerSplit()));
         }
     }
 }

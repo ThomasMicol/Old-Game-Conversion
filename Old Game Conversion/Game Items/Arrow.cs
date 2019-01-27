@@ -18,13 +18,13 @@ namespace Old_Game_Conversion.Game_Items
 
 
 
-        public Arrow(Vector2 aPosition, int aBearing, float aVelocity)
+        public Arrow(Vector2 aPosition, int aBearing, float aVelocity, Vector2 powerSplit)
         {
             position = aPosition;
             bearing = aBearing;
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
-            velocity = new Vector2(aVelocity * (float)0.50, aVelocity * (float)0.50);
-            mass = 0.25;
+            velocity = new Vector2(aVelocity * powerSplit.X, aVelocity * powerSplit.Y);
+            mass = 0.95;
             physics = true;
         }
 
