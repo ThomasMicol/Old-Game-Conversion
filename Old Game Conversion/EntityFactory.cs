@@ -40,8 +40,14 @@ namespace Old_Game_Conversion
         protected List<Entity> GetGameEntityList()
         {
             List<Entity> gameEntityList = new List<Entity>();
+            StandardGround.texture = context.Content.Load<Texture2D>("ground_texture");
             Player player = new Player(new Vector2(90, 350), context);
+            List<StandardGround> ground = GetGround();
             gameEntityList.Add(player);
+            foreach(StandardGround aground in ground)
+            {
+                gameEntityList.Add(aground);
+            }
             context.stateManager.SetPlayer(player);
             return gameEntityList;
         }
@@ -51,5 +57,18 @@ namespace Old_Game_Conversion
             List<Entity> shopEntityList = new List<Entity>();
             return shopEntityList;
         }
+
+        protected List<StandardGround> GetGround()
+        {
+            List<StandardGround> ground = new List<StandardGround>
+            {
+                new StandardGround(new Vector2(0, 410)),
+                new StandardGround(new Vector2(200, 410)),
+                new StandardGround(new Vector2(400, 410)),
+                new StandardGround(new Vector2(600, 410))
+            };
+            return ground;
+        }
+        
     }
 }

@@ -47,7 +47,10 @@
     <Compile Include="Game Items\Arrow.cs" />
     <Compile Include="Game Items\ArrowTrajectory.cs" />
     <Compile Include="Game Items\CurrencyLabel.cs" />
+    <Compile Include="Game Items\NPCEntity.cs" />
+    <Compile Include="Game Items\NPCSpawner.cs" />
     <Compile Include="Game Items\Player.cs" />
+    <Compile Include="Game Items\StandardGround.cs" />
     <Compile Include="GameStats.cs" />
     <Compile Include="Menu Items\ExitButton.cs" />
     <Compile Include="Game1.cs" />

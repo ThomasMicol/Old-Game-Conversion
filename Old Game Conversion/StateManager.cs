@@ -78,7 +78,7 @@ namespace Old_Game_Conversion
             foreach(Entity aEntity in stateEntities.ToList())
             {
                 Rectangle entityMask = new Rectangle(new Point((int)Math.Round(aEntity.GetPosition().X, 0), (int)Math.Round(aEntity.GetPosition().Y, 0)), new Point(1, 1));
-                if(!context.Window.ClientBounds.Intersects(entityMask))
+                if (!context.Window.ClientBounds.Intersects(entityMask) && aEntity.GetType().ToString() == "Arrow")
                 {
                     stateEntities.Remove(aEntity);
                 }
