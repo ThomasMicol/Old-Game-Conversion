@@ -8,6 +8,7 @@ namespace Old_Game_Conversion.Game_Items
     class NPCEntity : Entity
     {
         protected List<Entity> connectedEntities = new List<Entity>();
+        protected int killWorth;
 
         public override void SetCollisionMask(Texture2D aText)
         {
@@ -33,6 +34,11 @@ namespace Old_Game_Conversion.Game_Items
 
         protected virtual void Die()
         {
+            context.stateManager.AddStats(StatEnum.currency, killWorth);
+            foreach(Entity connected in connectedEntities)
+            {
+                context.stateManager.GetEntities().Remove(connected);
+            }
             context.stateManager.RemoveEntity(this);
         }
     }

@@ -30,6 +30,7 @@ namespace Old_Game_Conversion.Game_Items
             type = GameEntitiesEnum.enemy;
             mass = 1;
             health = 100;
+            killWorth = 20;
             SetCollisionMask(texture);
             System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
         }
@@ -46,7 +47,7 @@ namespace Old_Game_Conversion.Game_Items
                 if(StandingOnSolidGround())
                 {
                     velocity.Y = 0;
-                    velocity.X = -3;
+                    velocity.X = -2;
                 }
                 else
                 {
@@ -77,7 +78,7 @@ namespace Old_Game_Conversion.Game_Items
 
         public override void SetCollisionMask(Texture2D aText)
         {
-            Rectangle colMask = new Rectangle((int)position.X, (int)position.Y, aText.Width, aText.Height + 25);
+            Rectangle colMask = new Rectangle((int)position.X, (int)position.Y + 26, aText.Width, aText.Height -1);
             collisionMask = colMask;
         }
 
@@ -86,5 +87,6 @@ namespace Old_Game_Conversion.Game_Items
             float dmgTaken = aProjectile.CalculateDamage();
             health -= (int)Math.Round(dmgTaken, MidpointRounding.AwayFromZero);
         }
+        
     }
 }

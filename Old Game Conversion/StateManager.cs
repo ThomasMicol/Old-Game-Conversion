@@ -100,9 +100,17 @@ namespace Old_Game_Conversion
             stateEntities.Add(aEntity);
         }
 
+        public void RemoveEntity(Entity aEntity)
+        {
+            stateEntities.Remove(aEntity);
+        }
+
         public Player GetPlayer() { return player; }
         public void SetPlayer(Player aPlayer) { player = aPlayer; }
         public List<Entity> GetEntities() { return stateEntities; }
+        public void AddStats(StatEnum statType, int alterable) { gameStats.AddStats(statType, alterable); }
+        public void RemoveStats(StatEnum statType, int alterable) { gameStats.RemoveStats(statType, alterable); }
+
 
         public List<Entity> GetSpecificEntities(params GameEntitiesEnum[] entTypes)
         {

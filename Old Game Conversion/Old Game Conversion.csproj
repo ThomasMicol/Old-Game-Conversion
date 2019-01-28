@@ -54,6 +54,7 @@
     <Compile Include="Game Items\NPCSpawner.cs" />
     <Compile Include="Game Items\Player.cs" />
     <Compile Include="Game Items\StandardGround.cs" />
+    <Compile Include="Game Items\StatEnum.cs" />
     <Compile Include="GameStats.cs" />
     <Compile Include="Menu Items\ExitButton.cs" />
     <Compile Include="Game1.cs" />
