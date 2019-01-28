@@ -47,7 +47,7 @@ namespace Old_Game_Conversion
             font = Content.Load<SpriteFont>("Verdana");
             texture = Content.Load<Texture2D>("texture");
 
-            
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -77,7 +77,7 @@ namespace Old_Game_Conversion
         private void UpdateInput()
         {
             stateManager.CheckInteractions();
-            
+
         }
 
         private void UpdateGameWorld(GameTime gameTime)

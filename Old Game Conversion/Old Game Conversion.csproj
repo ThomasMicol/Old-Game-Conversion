@@ -47,8 +47,10 @@
     <Compile Include="Game Items\Arrow.cs" />
     <Compile Include="Game Items\ArrowTrajectory.cs" />
     <Compile Include="Game Items\CurrencyLabel.cs" />
+    <Compile Include="Game Items\FootSoldier.cs" />
     <Compile Include="Game Items\GameEntitiesEnum.cs" />
     <Compile Include="Game Items\NPCEntity.cs" />
+    <Compile Include="Game Items\NPCFactory.cs" />
     <Compile Include="Game Items\NPCSpawner.cs" />
     <Compile Include="Game Items\Player.cs" />
     <Compile Include="Game Items\StandardGround.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Label.cs" />
     <Compile Include="MenuInteractionSet.cs" />
     <Compile Include="Menu Items\OptionsButton.cs" />
+    <Compile Include="NPCTypeEnum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopInteractionSet.cs" />

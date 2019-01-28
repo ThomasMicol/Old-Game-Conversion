@@ -5,7 +5,7 @@ using System;
 
 namespace Old_Game_Conversion
 {
-    class Entity
+    abstract class Entity
     {
         protected GameEntitiesEnum type;
         protected Game1 context;
@@ -28,7 +28,7 @@ namespace Old_Game_Conversion
 
         public virtual void Draw(GameTime gameTime, Game1 context)
         {
-            
+
         }
 
         public virtual void Update(GameTime gameTime, Game1 context)
@@ -36,8 +36,13 @@ namespace Old_Game_Conversion
             lastUpdate = double.Parse(gameTime.TotalGameTime.TotalSeconds.ToString());
         }
 
+        public virtual void AddConnectedEntity(Entity aEntity) { }
+
         public virtual Vector2 GetPosition() { return position; }
+        public virtual void SetPosition(Vector2 aPos) { position = aPos; }
         public virtual Rectangle GetCollisionMask() { return collisionMask; }
+        public virtual void ApplyDamage(Entity aProjectile) { }
+        public virtual float CalculateDamage() { return float.NaN; }
 
         protected virtual double GetTimeSinceLastUpdate(GameTime gameTime)
         {

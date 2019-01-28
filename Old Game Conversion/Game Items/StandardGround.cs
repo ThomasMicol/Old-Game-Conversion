@@ -27,7 +27,7 @@ namespace Old_Game_Conversion.Game_Items
 
         public override void SetCollisionMask(Texture2D aText)
         {
-            Rectangle colMask = new Rectangle((int)position.X , (int)position.Y + 20, aText.Width * 2 , aText.Height * 2);
+            Rectangle colMask = new Rectangle((int)position.X, (int)position.Y + 25, aText.Width * 2 , aText.Height * 2);
             collisionMask = colMask;
         }
     }

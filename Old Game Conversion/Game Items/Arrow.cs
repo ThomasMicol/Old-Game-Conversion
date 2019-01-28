@@ -15,6 +15,7 @@ namespace Old_Game_Conversion.Game_Items
         protected Vector2 origin;
         protected float rotation;
         protected float finalRotation;
+        protected float flatDamage;
 
         public Arrow(Vector2 aPosition, int aBearing, float aVelocity, Vector2 powerSplit)
         {
@@ -26,6 +27,7 @@ namespace Old_Game_Conversion.Game_Items
             physics = true;
             type = GameEntitiesEnum.arrow;
             SetCollisionMask(texture);
+            flatDamage = 50;
         }
 
         public override void Draw(GameTime gameTime, Game1 context)
@@ -52,6 +54,11 @@ namespace Old_Game_Conversion.Game_Items
                         finalRotation = CalculateRotation();
                         velocity = new Vector2(0, 0);
                         physics = false;
+                        if(aEnt.GetType() == GameEntitiesEnum.enemy)
+                        {
+                            aEnt.ApplyDamage(this);
+                            aEnt.AddConnectedEntity(this);
+                        }
                     }
                 }
             }
@@ -74,7 +81,12 @@ namespace Old_Game_Conversion.Game_Items
         {
             base.SetCollisionMask(texture);
             return base.GetCollisionMask();
+        }
 
+        public override float CalculateDamage()
+        {
+            float result = flatDamage * (float)mass;
+            return result;
         }
     }
 }

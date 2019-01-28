@@ -11,6 +11,7 @@ namespace Old_Game_Conversion.Game_Items
         ground = 0,
         player = 1,
         enemy = 2,
-        arrow = 3
+        arrow = 3,
+        NPCspawner = 4
     }
 }
