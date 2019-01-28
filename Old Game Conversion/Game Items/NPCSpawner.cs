@@ -9,8 +9,18 @@ namespace Old_Game_Conversion
     {
         protected float lastSpawn;
         protected NPCFactory npcFactory;
+        protected bool isFriendly;
+        protected bool spawnPacket;
         protected Game1 context;
         
+        public NPCSpawner(Vector2 aPosition, SpawnPacket spawnPacket)
+        {
+            position = aPosition;
+            lastSpawn = 0;
+            type = GameEntitiesEnum.NPCspawner;
+            npcFactory = new NPCFactory();
+        }
+
         public NPCSpawner(Vector2 aPosition)
         {
             position = aPosition;

@@ -10,6 +10,8 @@ namespace Old_Game_Conversion
     {
         MenuState = 0,
         GameState = 1,
-        ShopState = 2
+        ShopState = 2,
+        LootState = 3,
+        DeathState = 4
     }
 }

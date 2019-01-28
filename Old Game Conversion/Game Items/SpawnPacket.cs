@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Old_Game_Conversion.Game_Items
 {
-    enum GameEntitiesEnum
+    class SpawnPacket
     {
-        ground = 0,
-        player = 1,
-        enemy = 2,
-        arrow = 3,
-        NPCspawner = 4,
-        friendly = 5
     }
 }

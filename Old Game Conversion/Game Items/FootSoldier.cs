@@ -12,16 +12,17 @@ namespace Old_Game_Conversion.Game_Items
     {
         new public static Texture2D texture;
 
-        public FootSoldier(Vector2 aPosition)
-        {
-            position = aPosition;
-            physics = true;
-            velocity = new Vector2(0, 0);
-            type = GameEntitiesEnum.enemy;
-            mass = 1;
-            SetCollisionMask(texture);
-            System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
-        }
+        //public FootSoldier(Vector2 aPosition)
+        //{
+        //    position = aPosition;
+        //    physics = true;
+        //    velocity = new Vector2(0, 0);
+        //    type = GameEntitiesEnum.enemy;
+        //    mass = 1;
+        //    SetCollisionMask(texture);
+        //    isFriendly = true;
+        //    System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
+        //}
 
         public FootSoldier()
         {
@@ -31,6 +32,7 @@ namespace Old_Game_Conversion.Game_Items
             mass = 1;
             health = 100;
             killWorth = 20;
+            isFriendly = true;
             SetCollisionMask(texture);
             System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
         }
@@ -47,7 +49,10 @@ namespace Old_Game_Conversion.Game_Items
                 if(StandingOnSolidGround())
                 {
                     velocity.Y = 0;
-                    velocity.X = -2;
+                    if (isFriendly)
+                        velocity.X = 2;
+                    else
+                        velocity.X = -2;
                 }
                 else
                 {

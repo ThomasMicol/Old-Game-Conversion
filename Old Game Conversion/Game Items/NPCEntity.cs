@@ -9,6 +9,7 @@ namespace Old_Game_Conversion.Game_Items
     {
         protected List<Entity> connectedEntities = new List<Entity>();
         protected int killWorth;
+        protected bool isFriendly;
 
         public override void SetCollisionMask(Texture2D aText)
         {

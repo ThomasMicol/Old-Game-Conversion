@@ -49,12 +49,16 @@
     <Compile Include="Game Items\CurrencyLabel.cs" />
     <Compile Include="Game Items\FootSoldier.cs" />
     <Compile Include="Game Items\GameEntitiesEnum.cs" />
+    <Compile Include="Game Items\LoseTrigger.cs" />
     <Compile Include="Game Items\NPCEntity.cs" />
     <Compile Include="Game Items\NPCFactory.cs" />
     <Compile Include="Game Items\NPCSpawner.cs" />
     <Compile Include="Game Items\Player.cs" />
+    <Compile Include="Game Items\SpawnPacket.cs" />
     <Compile Include="Game Items\StandardGround.cs" />
     <Compile Include="Game Items\StatEnum.cs" />
+    <Compile Include="Game Items\Trigger.cs" />
+    <Compile Include="Game Items\WinTrigger.cs" />
     <Compile Include="GameStats.cs" />
     <Compile Include="Menu Items\ExitButton.cs" />
     <Compile Include="Game1.cs" />

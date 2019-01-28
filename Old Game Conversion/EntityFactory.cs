@@ -43,8 +43,12 @@ namespace Old_Game_Conversion
             StandardGround.texture = context.Content.Load<Texture2D>("ground_texture");
             Player player = new Player(new Vector2(90, 350), context);
             List<StandardGround> ground = GetGround();
+            WinTrigger wt = new WinTrigger();
+            LoseTrigger lt = new LoseTrigger();
+            gameEntityList.Add(wt);
+            gameEntityList.Add(lt);
             gameEntityList.Add(player);
-            gameEntityList.Add(new NPCSpawner(new Vector2(500, 300)));
+            gameEntityList.Add(new NPCSpawner(new Vector2(500, 350)));
             foreach(StandardGround aground in ground)
             {
                 gameEntityList.Add(aground);
