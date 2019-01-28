@@ -15,6 +15,7 @@ namespace Old_Game_Conversion.Game_Items
         public Player(Vector2 aPositon, Game1 aContext)
         {
             context = aContext;
+            type = GameEntitiesEnum.player;
             texture = aContext.Content.Load<Texture2D>("Player");
             Arrow.texture = aContext.Content.Load<Texture2D>("arrow");
             position = aPositon;

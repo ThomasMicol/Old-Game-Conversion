@@ -1,21 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Old_Game_Conversion.Game_Items;
 using System;
 
 namespace Old_Game_Conversion
 {
     class Entity
     {
+        protected GameEntitiesEnum type;
         protected Game1 context;
         protected double lastUpdate;
         protected Vector2 position;
         protected int health;
         protected Texture2D texture;
         protected Vector2 velocity;
+        protected Rectangle collisionMask;
         //protected double vertVelocity;
         //protected double horizVelocity;
         protected double mass;
         protected bool physics;
+
+        public virtual void SetCollisionMask(Texture2D aText)
+        {
+            Rectangle colMask = new Rectangle((int)position.X, (int)position.Y, aText.Width, aText.Height);
+            collisionMask = colMask;
+        }
 
         public virtual void Draw(GameTime gameTime, Game1 context)
         {
@@ -28,6 +37,7 @@ namespace Old_Game_Conversion
         }
 
         public virtual Vector2 GetPosition() { return position; }
+        public virtual Rectangle GetCollisionMask() { return collisionMask; }
 
         protected virtual double GetTimeSinceLastUpdate(GameTime gameTime)
         {
@@ -40,5 +50,7 @@ namespace Old_Game_Conversion
         {
             velocity.Y -= (float)mass * (float)0.0982;
         }
+
+        new public GameEntitiesEnum GetType() { return type; }
     }
 }

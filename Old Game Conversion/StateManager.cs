@@ -102,5 +102,22 @@ namespace Old_Game_Conversion
 
         public Player GetPlayer() { return player; }
         public void SetPlayer(Player aPlayer) { player = aPlayer; }
+        public List<Entity> GetEntities() { return stateEntities; }
+
+        public List<Entity> GetSpecificEntities(params GameEntitiesEnum[] entTypes)
+        {
+            List<Entity> entList = new List<Entity>();
+            foreach(Entity aEnt in stateEntities)
+            {
+                foreach(GameEntitiesEnum aType in entTypes)
+                {
+                    if(aEnt.GetType() == aType)
+                    {
+                        entList.Add(aEnt);
+                    }
+                }
+            }
+            return entList;
+        }
     }
 }
