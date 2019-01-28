@@ -14,6 +14,7 @@ namespace Old_Game_Conversion.Game_Items
         protected int bearing;
         protected Vector2 origin;
         protected float rotation;
+        protected float finalRotation;
 
         public Arrow(Vector2 aPosition, int aBearing, float aVelocity, Vector2 powerSplit)
         {
@@ -32,26 +33,30 @@ namespace Old_Game_Conversion.Game_Items
             if (physics)
                 context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White, rotation, origin, SpriteEffects.None, 0f);
             else
-                context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White);
+                context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White, finalRotation, origin, SpriteEffects.None, 0f);
             base.Draw(gameTime, context);
         }
 
         public override void Update(GameTime gameTime, Game1 context)
         {
-            foreach(Entity aEnt in context.stateManager.GetSpecificEntities(GameEntitiesEnum.ground, GameEntitiesEnum.enemy))
-            {
-                if (aEnt.GetCollisionMask().Intersects(GetCollisionMask()))
-                {
-                    velocity = new Vector2(0, 0);
-                    physics = false;
-                }
-            }
             if (physics)
+            {
                 ApplyGravity(gameTime);
                 rotation = CalculateRotation();
                 position.X += velocity.X;
                 position.Y -= velocity.Y;
-            base.Update(gameTime, context);
+                foreach (Entity aEnt in context.stateManager.GetSpecificEntities(GameEntitiesEnum.ground, GameEntitiesEnum.enemy))
+                {
+                    if (aEnt.GetCollisionMask().Intersects(GetCollisionMask()))
+                    {
+                        finalRotation = CalculateRotation();
+                        velocity = new Vector2(0, 0);
+                        physics = false;
+                    }
+                }
+            }
+            else
+                base.Update(gameTime, context);
         }
 
         protected float CalculateRotation()
