@@ -16,6 +16,11 @@ namespace Old_Game_Conversion.Game_Items
             base.SetCollisionMask(aText);
         }
 
+        public virtual int GetKillWorth()
+        {
+            return killWorth;
+        }
+
         public override void AddConnectedEntity(Entity anEntity)
         {
             connectedEntities.Add(anEntity);
@@ -35,7 +40,8 @@ namespace Old_Game_Conversion.Game_Items
 
         protected virtual void Die()
         {
-            context.stateManager.AddStats(StatEnum.currency, killWorth);
+            context.stateManager.gameStats.currentBattle.EnemyKilled(this);
+
             foreach(Entity connected in connectedEntities)
             {
                 context.stateManager.GetEntities().Remove(connected);

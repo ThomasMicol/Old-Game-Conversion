@@ -40,6 +40,7 @@ namespace Old_Game_Conversion
         protected List<Entity> GetGameEntityList()
         {
             List<Entity> gameEntityList = new List<Entity>();
+            context.stateManager.gameStats.StartBattleReport();
             StandardGround.texture = context.Content.Load<Texture2D>("ground_texture");
             Player player = new Player(new Vector2(90, 350), context);
             List<StandardGround> ground = GetGround();
@@ -48,7 +49,8 @@ namespace Old_Game_Conversion
             gameEntityList.Add(wt);
             gameEntityList.Add(lt);
             gameEntityList.Add(player);
-            gameEntityList.Add(new NPCSpawner(new Vector2(500, 350)));
+            gameEntityList.Add(new NPCSpawner(new Vector2(0, 350), true));
+            gameEntityList.Add(new NPCSpawner(new Vector2(850, 350), false));
             foreach(StandardGround aground in ground)
             {
                 gameEntityList.Add(aground);
@@ -70,7 +72,8 @@ namespace Old_Game_Conversion
                 new StandardGround(new Vector2(0, 410)),
                 new StandardGround(new Vector2(200, 410)),
                 new StandardGround(new Vector2(400, 410)),
-                new StandardGround(new Vector2(600, 410))
+                new StandardGround(new Vector2(600, 410)),
+                new StandardGround(new Vector2(800, 410))
             };
             return ground;
         }

@@ -30,10 +30,11 @@ namespace Old_Game_Conversion
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // Add your initialization logic here
             IsMouseVisible = true;
             stateManager = new StateManager(this, false);
             base.Initialize();
+            
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace Old_Game_Conversion
             texture = Content.Load<Texture2D>("texture");
 
 
-            // TODO: use this.Content to load your game content here
+            //  use this.Content to load your game content here
         }
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace Old_Game_Conversion
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            //  Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace Old_Game_Conversion
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             stateManager.RenderState(gameTime);
-            // TODO: Add your drawing code here
+            // Add your drawing code here
             base.Draw(gameTime);
             spriteBatch.End();
         }

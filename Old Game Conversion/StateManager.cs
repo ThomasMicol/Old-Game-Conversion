@@ -17,13 +17,13 @@ namespace Old_Game_Conversion
         protected StateEnum state;
         protected InteractionSet interactionSet;
         protected List<Entity> stateEntities;
-        protected static GameStats gameStats;
+        public GameStats gameStats;
         protected static Player player;
         protected bool debugMode;
 
         public StateManager(Game1 game, bool debugOption)
         {
-            gameStats = new GameStats();
+            gameStats = new GameStats(this);
             interactionFactory = new InteractionFactory();
             entityFactory = new EntityFactory();
             interactionSet = GetStateInteractions();
@@ -61,10 +61,10 @@ namespace Old_Game_Conversion
             foreach(GuiElement element in interactionSet.GetGUIelements())
             {
                 element.Draw(gameTime, context);
-                if(element.GetType() == GuiElementType.label)
-                {
-                    context.spriteBatch.DrawString(context.font, element.GetText(), element.GetPosition(), element.GetColor());
-                }
+                //if(element.GetType() == GuiElementType.label)
+                //{
+                //    context.spriteBatch.DrawString(context.font, element.GetText(), element.GetPosition(), element.GetColor());
+                //}
                 
             }
             foreach(Entity aEntity in stateEntities)
@@ -86,7 +86,10 @@ namespace Old_Game_Conversion
                 {
                     aEntity.Update(gameTime, context);
                 }
-                
+            }
+            foreach (GuiElement element in interactionSet.GetGUIelements())
+            {
+                element.Update(gameTime, context);
             }
         }
 
@@ -103,6 +106,11 @@ namespace Old_Game_Conversion
         public void RemoveEntity(Entity aEntity)
         {
             stateEntities.Remove(aEntity);
+        }
+
+        public void AddGuiElement(GuiElement aElement)
+        {
+            interactionSet.SetGuiElement(aElement);
         }
 
         public Player GetPlayer() { return player; }

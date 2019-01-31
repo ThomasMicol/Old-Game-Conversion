@@ -36,6 +36,11 @@ namespace Old_Game_Conversion
             lastUpdate = double.Parse(gameTime.TotalGameTime.TotalSeconds.ToString());
         }
 
+        public virtual void SetAllegiance(GameEntitiesEnum allegiance)
+        {
+            type = allegiance;
+        }
+
         public virtual void AddConnectedEntity(Entity aEntity) { }
 
         public virtual Vector2 GetPosition() { return position; }

@@ -29,6 +29,15 @@ namespace Old_Game_Conversion
             npcFactory = new NPCFactory();
         }
 
+        public NPCSpawner(Vector2 aPosition, bool friendly)
+        {
+            position = aPosition;
+            lastSpawn = 0;
+            type = GameEntitiesEnum.NPCspawner;
+            npcFactory = new NPCFactory();
+            isFriendly = friendly;
+        }
+
         public override void Update(GameTime gameTime, Game1 aContext)
         {
             context = aContext;
@@ -44,7 +53,11 @@ namespace Old_Game_Conversion
         {
             foreach (NPCTypeEnum spawn in spawns)
             {
-                Entity npc = npcFactory.GetNPC(spawn, context);
+                Entity npc = npcFactory.GetNPC(spawn, isFriendly, context);
+                if (isFriendly == true)
+                    npc.SetAllegiance(GameEntitiesEnum.friendly);
+                else
+                    npc.SetAllegiance(GameEntitiesEnum.enemy);
                 npc.SetPosition(new Vector2(position.X, position.Y));
                 context.stateManager.AddEntity(npc);
             }

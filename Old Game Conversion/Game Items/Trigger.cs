@@ -25,7 +25,7 @@ namespace Old_Game_Conversion.Game_Items
 
         protected virtual void ActivateTrigger(Game1 aContext)
         {
-
+            aContext.stateManager.gameStats.EndBattleReport();
         }
     }
 }

@@ -37,7 +37,12 @@ namespace Old_Game_Conversion
 
         public virtual void Draw(GameTime gameTime, Game1 context)
         {
-            
+
+        }
+
+        public virtual void Update(GameTime gameTime, Game1 context)
+        {
+
         }
 
         public virtual void Interact(Game1 context)

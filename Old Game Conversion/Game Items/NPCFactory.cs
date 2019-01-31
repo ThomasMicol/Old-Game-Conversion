@@ -12,13 +12,14 @@ namespace Old_Game_Conversion.Game_Items
     {
         protected Game1 context;
 
-        public Entity GetNPC(NPCTypeEnum type, Game1 context)
+        public Entity GetNPC(NPCTypeEnum type, bool isFriendly, Game1 context)
         {
             switch (type)
             {
                 case NPCTypeEnum.foot_soldier:
-                    FootSoldier.texture = context.Content.Load<Texture2D>("enemy");
-                    return new FootSoldier();
+                    FootSoldier.enemyTexture = context.Content.Load<Texture2D>("enemy");
+                    FootSoldier.friendlyTexture = context.Content.Load<Texture2D>("friendly");
+                    return new FootSoldier(isFriendly);
                 default:
                     throw new Exception("tried to spawn a entity which doesnt exist.");
             }

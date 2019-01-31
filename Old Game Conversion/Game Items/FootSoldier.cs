@@ -10,7 +10,8 @@ namespace Old_Game_Conversion.Game_Items
 {
     class FootSoldier : NPCEntity
     {
-        new public static Texture2D texture;
+        public static Texture2D friendlyTexture;
+        public static Texture2D enemyTexture;
 
         //public FootSoldier(Vector2 aPosition)
         //{
@@ -24,17 +25,30 @@ namespace Old_Game_Conversion.Game_Items
         //    System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
         //}
 
-        public FootSoldier()
+        public FootSoldier(bool friendly)
         {
             physics = true;
             velocity = new Vector2(0, 0);
-            type = GameEntitiesEnum.enemy;
             mass = 1;
             health = 100;
             killWorth = 20;
-            isFriendly = true;
+            isFriendly = friendly;
+            SetType();
+            if (type == GameEntitiesEnum.friendly)
+                texture = friendlyTexture;
+            else if (type == GameEntitiesEnum.enemy)
+                texture = enemyTexture;
             SetCollisionMask(texture);
             System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
+            
+        }
+
+        protected void SetType()
+        {
+            if (isFriendly)
+                type = GameEntitiesEnum.friendly;
+            else
+                type = GameEntitiesEnum.enemy;
         }
 
         public override void Update(GameTime gameTime, Game1 aContext)
@@ -49,7 +63,7 @@ namespace Old_Game_Conversion.Game_Items
                 if(StandingOnSolidGround())
                 {
                     velocity.Y = 0;
-                    if (isFriendly)
+                    if (type == GameEntitiesEnum.friendly)
                         velocity.X = 2;
                     else
                         velocity.X = -2;
