@@ -119,6 +119,16 @@ namespace Old_Game_Conversion
         public void AddStats(StatEnum statType, int alterable) { gameStats.AddStats(statType, alterable); }
         public void RemoveStats(StatEnum statType, int alterable) { gameStats.RemoveStats(statType, alterable); }
 
+        public void RemoveSpawners()
+        {
+            foreach(Entity aEnt in stateEntities.ToList())
+            {
+                if(aEnt.GetType() == GameEntitiesEnum.NPCspawner)
+                {
+                    stateEntities.Remove(aEnt);
+                }
+            }
+        }
 
         public List<Entity> GetSpecificEntities(params GameEntitiesEnum[] entTypes)
         {

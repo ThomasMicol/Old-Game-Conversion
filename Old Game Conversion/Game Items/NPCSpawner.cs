@@ -12,7 +12,8 @@ namespace Old_Game_Conversion
         protected bool isFriendly;
         protected bool spawnPacket;
         protected Game1 context;
-        
+
+
         public NPCSpawner(Vector2 aPosition, SpawnPacket spawnPacket)
         {
             position = aPosition;

@@ -37,6 +37,7 @@ namespace Old_Game_Conversion.Game_Items
             }
             if(timeSpawned + 6 == gameTime.TotalGameTime.Seconds)
             {
+               
                 //context.stateManager.ChangeState(StateEnum.LootState);
             }
             particleEmit.Update(gameTime, context);

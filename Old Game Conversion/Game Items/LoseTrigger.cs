@@ -30,6 +30,7 @@ namespace Old_Game_Conversion.Game_Items
         protected override void ActivateTrigger(Game1 aContext)
         {
             aContext.stateManager.AddGuiElement(new DefeatLabel(new Vector2(50, 50), aContext));  //TODO: Convert Absolute positioning to relative
+            aContext.stateManager.RemoveSpawners();
             aContext.stateManager.RemoveEntity(this);
             base.ActivateTrigger(aContext);
         }
