@@ -9,17 +9,22 @@ namespace Old_Game_Conversion.Game_Items
     class BattleReport
     {
         public bool hasBeenEvaluated;
-        public int currencyGained;
+        public List<Tuple<ItemEnum, int>> lootGained;
+        public List<Tuple<SkillEnum, int>> expGained;
 
         public BattleReport()
         {
             hasBeenEvaluated = false;
-            currencyGained = 0;
+            lootGained = new List<Tuple<ItemEnum, int>>();
+            expGained = new List<Tuple<SkillEnum, int>>();
         }
 
         public void EnemyKilled(NPCEntity aEnt)
         {
-            currencyGained += aEnt.GetKillWorth();
+            foreach(Tuple<ItemEnum, int> roll in aEnt.RollLoot())
+            {
+                lootGained.Add(roll);
+            }
         }
     }
 }

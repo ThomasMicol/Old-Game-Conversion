@@ -10,6 +10,7 @@ namespace Old_Game_Conversion.Game_Items
         protected List<Entity> connectedEntities = new List<Entity>();
         protected int killWorth;
         protected bool isFriendly;
+        protected LootTable lootTable;
 
         public override void SetCollisionMask(Texture2D aText)
         {
@@ -24,6 +25,12 @@ namespace Old_Game_Conversion.Game_Items
         public override void AddConnectedEntity(Entity anEntity)
         {
             connectedEntities.Add(anEntity);
+        }
+
+        public virtual List<Tuple<ItemEnum, int>> RollLoot()
+        {
+            List<Tuple<ItemEnum, int>> rolls = lootTable.DoRolls();
+            return rolls;
         }
 
         protected bool StandingOnSolidGround()
@@ -48,5 +55,7 @@ namespace Old_Game_Conversion.Game_Items
             }
             context.stateManager.RemoveEntity(this);
         }
+
     }
+
 }

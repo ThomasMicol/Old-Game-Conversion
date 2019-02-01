@@ -49,7 +49,7 @@ namespace Old_Game_Conversion
             gameEntityList.Add(wt);
             gameEntityList.Add(lt);
             gameEntityList.Add(player);
-            gameEntityList.Add(new NPCSpawner(new Vector2(0, 350), true));
+            //gameEntityList.Add(new NPCSpawner(new Vector2(0, 350), true));
             gameEntityList.Add(new NPCSpawner(new Vector2(850, 350), false));
             foreach(StandardGround aground in ground)
             {

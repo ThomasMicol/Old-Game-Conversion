@@ -12,6 +12,7 @@ namespace Old_Game_Conversion.Game_Items
     {
         public static Texture2D friendlyTexture;
         public static Texture2D enemyTexture;
+        public NPCTypeEnum minionType;
 
         //public FootSoldier(Vector2 aPosition)
         //{
@@ -39,12 +40,14 @@ namespace Old_Game_Conversion.Game_Items
             else if (type == GameEntitiesEnum.enemy)
                 texture = enemyTexture;
             SetCollisionMask(texture);
+            lootTable = LootTableFactory.GetLootTable(minionType);
             System.Diagnostics.Debug.WriteLine("im a foot soldier kill me");
             
         }
 
         protected void SetType()
         {
+            minionType = NPCTypeEnum.foot_soldier;
             if (isFriendly)
                 type = GameEntitiesEnum.friendly;
             else
