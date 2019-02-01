@@ -56,7 +56,13 @@ namespace Old_Game_Conversion
         public virtual Vector2 GetPosition() { return position; }
         public virtual void SetPosition(Vector2 aPos) { position = aPos; }
         public virtual Rectangle GetCollisionMask() { return collisionMask; }
-        public virtual void ApplyDamage(Entity aProjectile) { }
+
+        public virtual void ApplyDamage(Entity aDamageSource)
+        {
+            float damage = aDamageSource.CalculateDamage();
+            context.stateManager.gameStats.AddBattleExperience(SkillEnum.archery, (int)damage);
+            context.stateManager.gameStats.AddBattleExperience(SkillEnum.fortitude, (int)damage / 2);
+        }
         public virtual float CalculateDamage() { return float.NaN; }
         public virtual bool GetIsFadingOut() { return isFadingOut; }
         public virtual bool GetIsFadingIn() { return isFadingIn; }

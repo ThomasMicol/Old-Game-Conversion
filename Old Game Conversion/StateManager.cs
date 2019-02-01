@@ -116,8 +116,6 @@ namespace Old_Game_Conversion
         public Player GetPlayer() { return player; }
         public void SetPlayer(Player aPlayer) { player = aPlayer; }
         public List<Entity> GetEntities() { return stateEntities; }
-        public void AddStats(StatEnum statType, int alterable) { gameStats.AddStats(statType, alterable); }
-        public void RemoveStats(StatEnum statType, int alterable) { gameStats.RemoveStats(statType, alterable); }
         public Game1 GetContext() { return context; }
 
         public void RemoveSpawners()

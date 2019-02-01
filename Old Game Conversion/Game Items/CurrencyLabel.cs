@@ -18,7 +18,7 @@ namespace Old_Game_Conversion.Game_Items
         public override void Draw(GameTime gameTime, Game1 context)
         {
             GameStats stat = context.stateManager.GetStats();
-            text = "Gold Coins: " + stat.GetCurrency().ToString();
+            text = "Gold Coins: " + stat.GetItemAmount(ItemEnum.gold).ToString();
             base.Draw(gameTime, context);
         }
 

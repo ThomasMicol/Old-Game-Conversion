@@ -27,9 +27,9 @@ namespace Old_Game_Conversion.Game_Items
             connectedEntities.Add(anEntity);
         }
 
-        public virtual List<Tuple<ItemEnum, int>> RollLoot()
+        public virtual List<InventoryElement> RollLoot()
         {
-            List<Tuple<ItemEnum, int>> rolls = lootTable.DoRolls();
+            List<InventoryElement> rolls = lootTable.DoRolls();
             return rolls;
         }
 

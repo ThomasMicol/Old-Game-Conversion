@@ -17,6 +17,11 @@ namespace Old_Game_Conversion.Game_Items.Loot_Tables.Ground_Types
                 new Tuple<float, float, ItemEnum, int, int>(0.2f, 0.4f, ItemEnum.gold, 5, 10)
             };
 
+            guaranteedTable = new List<Tuple<ItemEnum, int, int>>
+            {
+                new Tuple<ItemEnum, int, int>(ItemEnum.gold, 1, 5)
+            };
+
             rolls = 2;
         }
     }

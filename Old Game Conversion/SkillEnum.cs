@@ -8,6 +8,7 @@ namespace Old_Game_Conversion
 {
     enum SkillEnum
     {
-
+        archery = 0,
+        fortitude = 1
     }
 }

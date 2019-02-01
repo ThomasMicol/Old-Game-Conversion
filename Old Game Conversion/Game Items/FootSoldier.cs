@@ -108,6 +108,7 @@ namespace Old_Game_Conversion.Game_Items
         {
             float dmgTaken = aProjectile.CalculateDamage();
             health -= (int)Math.Round(dmgTaken, MidpointRounding.AwayFromZero);
+            base.ApplyDamage(aProjectile);
         }
         
     }

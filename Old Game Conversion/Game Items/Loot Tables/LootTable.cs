@@ -10,30 +10,48 @@ namespace Old_Game_Conversion.Game_Items
     {
         protected List<Tuple<ItemEnum, int, int>> guaranteedTable;
         protected List<Tuple<float, float, ItemEnum, int, int>> rollTable;
+        protected Random rand = new Random();
+        protected double doubleRoll;
+        protected int quantity;
         protected int rolls;
 
-        protected virtual Tuple<ItemEnum, int> Roll()
+        protected virtual InventoryElement Roll()
         {
-            double rand = new Random().NextDouble();
+            doubleRoll = rand.NextDouble();
             foreach(Tuple<float, float, ItemEnum, int, int> tableEntry in rollTable)
             {
-                if(rand >= tableEntry.Item1 && rand <= tableEntry.Item2)
+                if(doubleRoll >= tableEntry.Item1 && doubleRoll <= tableEntry.Item2)
                 {
-                    int quantity = new Random().Next(tableEntry.Item4, tableEntry.Item5);
-                    return new Tuple<ItemEnum, int>(tableEntry.Item3, quantity);
+                    quantity = rand.Next(tableEntry.Item4, tableEntry.Item5);
+                    return new InventoryElement(tableEntry.Item3, quantity);
                 }
             }
-            return new Tuple<ItemEnum, int>(ItemEnum.nothing, 0);
+            return new InventoryElement(ItemEnum.nothing, 0);
         }
 
-        public virtual List<Tuple<ItemEnum, int>> DoRolls()
+        public virtual List<InventoryElement> DoRolls()
         {
-            List<Tuple<ItemEnum, int>> rolledItems = new List<Tuple<ItemEnum, int>>();
-            for(int i = 0; i <= rolls; i++)
+            List<InventoryElement> rolledItems = new List<InventoryElement>();
+            for(int i = 0; i < rolls; i++)
             {
                 rolledItems.Add(Roll());
             }
-            return rolledItems;
+            foreach(InventoryElement aLoot in GetGuaranteedLoot())
+            {
+                rolledItems.Add(aLoot);
+            }
+             return rolledItems;
+        }
+
+        protected virtual List<InventoryElement> GetGuaranteedLoot()
+        {
+            List<InventoryElement> guaranteed = new List<InventoryElement>();
+            foreach (Tuple<ItemEnum, int, int> tableEntry in guaranteedTable)
+            {
+                quantity = rand.Next(tableEntry.Item2, tableEntry.Item3);
+                guaranteed.Add(new InventoryElement(tableEntry.Item1, quantity));
+            }
+            return guaranteed;
         }
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="GameStats.cs" />
     <Compile Include="InteractionSets\DeathStateInteractionSet.cs" />
     <Compile Include="InteractionSets\LootStateInteractionSet.cs" />
+    <Compile Include="InventoryElement.cs" />
     <Compile Include="ItemEnum.cs" />
     <Compile Include="Menu Items\ExitButton.cs" />
     <Compile Include="Game1.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InteractionSets\ShopInteractionSet.cs" />
     <Compile Include="Menu Items\StartButton.cs" />
+    <Compile Include="SkillElement.cs" />
     <Compile Include="SkillEnum.cs" />
     <Compile Include="StateEnum.cs" />
     <Compile Include="StateManager.cs" />
