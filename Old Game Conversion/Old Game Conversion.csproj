@@ -44,12 +44,13 @@
     <Compile Include="Button.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EntityFactory.cs" />
+    <Compile Include="FadeoutMask.cs" />
     <Compile Include="Game Items\ArcherArm.cs" />
     <Compile Include="Game Items\Arrow.cs" />
     <Compile Include="Game Items\ArrowTrajectory.cs" />
     <Compile Include="Game Items\BattleReport.cs" />
     <Compile Include="Game Items\CurrencyLabel.cs" />
-    <Compile Include="Game Items\DefeatLabel.cs" />
+    <Compile Include="Game Items\GUI Elements\DefeatLabel.cs" />
     <Compile Include="Game Items\FootSoldier.cs" />
     <Compile Include="Game Items\GameEntitiesEnum.cs" />
     <Compile Include="Game Items\LoseTrigger.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Game Items\StandardGround.cs" />
     <Compile Include="Game Items\StatEnum.cs" />
     <Compile Include="Game Items\Trigger.cs" />
-    <Compile Include="Game Items\VictoryLabel.cs" />
+    <Compile Include="Game Items\GUI Elements\VictoryLabel.cs" />
     <Compile Include="Game Items\WinTrigger.cs" />
     <Compile Include="GameStats.cs" />
     <Compile Include="InteractionSets\DeathStateInteractionSet.cs" />
@@ -101,9 +102,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Game Items\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

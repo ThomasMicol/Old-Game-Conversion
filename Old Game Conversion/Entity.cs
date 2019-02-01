@@ -15,6 +15,9 @@ namespace Old_Game_Conversion
         protected Texture2D texture;
         protected Vector2 velocity;
         protected Rectangle collisionMask;
+        protected float alphaMask = 1;
+        protected bool isFadingOut = false;
+        protected bool isFadingIn = false;
         //protected double vertVelocity;
         //protected double horizVelocity;
         protected double mass;
@@ -33,6 +36,13 @@ namespace Old_Game_Conversion
 
         public virtual void Update(GameTime gameTime, Game1 context)
         {
+            if (isFadingOut)
+            {
+                if (alphaMask > 0)
+                {
+                    alphaMask -= 0.004f;
+                }
+            }
             lastUpdate = double.Parse(gameTime.TotalGameTime.TotalSeconds.ToString());
         }
 
@@ -48,6 +58,10 @@ namespace Old_Game_Conversion
         public virtual Rectangle GetCollisionMask() { return collisionMask; }
         public virtual void ApplyDamage(Entity aProjectile) { }
         public virtual float CalculateDamage() { return float.NaN; }
+        public virtual bool GetIsFadingOut() { return isFadingOut; }
+        public virtual bool GetIsFadingIn() { return isFadingIn; }
+        public virtual void SetIsFadingOut(bool isFading) { isFadingOut = isFading; }
+        public virtual void SetIsFadingIn(bool isFading) { isFadingIn = isFading; }
 
         protected virtual double GetTimeSinceLastUpdate(GameTime gameTime)
         {

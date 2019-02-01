@@ -21,7 +21,7 @@ namespace Old_Game_Conversion.Game_Items
 
         public override void Draw(GameTime gameTime, Game1 context)
         {
-            context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width * 2, texture.Height * 2), null, Color.White);
+            context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width * 2, texture.Height * 2), null, Color.White * alphaMask, 0 , new Vector2(1, 1), SpriteEffects.None, 1f);
             base.Draw(gameTime, context);
         }
 

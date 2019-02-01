@@ -33,9 +33,9 @@ namespace Old_Game_Conversion.Game_Items
         public override void Draw(GameTime gameTime, Game1 context)
         {
             if (physics)
-                context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White, rotation, origin, SpriteEffects.None, 0f);
+                context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White * alphaMask, rotation, origin, SpriteEffects.None, 0f);
             else
-                context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White, finalRotation, origin, SpriteEffects.None, 0f);
+                context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), null, Color.White * alphaMask, finalRotation, origin, SpriteEffects.None, 0f);
             base.Draw(gameTime, context);
         }
 

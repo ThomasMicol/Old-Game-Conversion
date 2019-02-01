@@ -92,7 +92,7 @@ namespace Old_Game_Conversion
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(ClearOptions.Target, Color.CornflowerBlue, 5f, 0);
             spriteBatch.Begin();
             stateManager.RenderState(gameTime);
             // Add your drawing code here

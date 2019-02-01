@@ -87,7 +87,7 @@ namespace Old_Game_Conversion
                     aEntity.Update(gameTime, context);
                 }
             }
-            foreach (GuiElement element in interactionSet.GetGUIelements())
+            foreach (GuiElement element in interactionSet.GetGUIelements().ToList())
             {
                 element.Update(gameTime, context);
             }
@@ -118,6 +118,7 @@ namespace Old_Game_Conversion
         public List<Entity> GetEntities() { return stateEntities; }
         public void AddStats(StatEnum statType, int alterable) { gameStats.AddStats(statType, alterable); }
         public void RemoveStats(StatEnum statType, int alterable) { gameStats.RemoveStats(statType, alterable); }
+        public Game1 GetContext() { return context; }
 
         public void RemoveSpawners()
         {
@@ -144,6 +145,27 @@ namespace Old_Game_Conversion
                 }
             }
             return entList;
+        }
+
+        public void FadeOut(StateEnum aState)
+        {
+            FadeoutMask mask = new FadeoutMask(this, aState);
+            AddGuiElement(mask);
+            foreach(Entity ent in stateEntities)
+            {
+                ent.SetIsFadingOut(true);
+            }
+            //foreach(GuiElement ent in interactionSet.GetGUIelements().ToList())
+            //{
+            //    ent.SetIsFadingOut(true);
+            //}
+
+
+        }
+
+        public void FadeIn(int duration)
+        {
+
         }
     }
 }

@@ -23,6 +23,12 @@ namespace Old_Game_Conversion.Game_Items
             myArm = new ArcherArm(this, context);
         }
 
+        public override void SetIsFadingOut(bool isFading)
+        {
+            myArm.SetIsFadingOut(isFading);
+            base.SetIsFadingOut(isFading);
+        }
+
         public override void Draw(GameTime gameTime, Game1 context)
         {
             context.spriteBatch.Draw(texture, position, Color.Red);

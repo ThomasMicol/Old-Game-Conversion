@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Old_Game_Conversion.Game_Items
 {
-    class ArcherArm
+    class ArcherArm : Entity
     {
         protected Vector2 myPosition;
         protected Texture2D myTexture;
@@ -49,12 +49,13 @@ namespace Old_Game_Conversion.Game_Items
 
         public void Draw(GameTime gameTime, Game1 context)
         {
-            context.spriteBatch.Draw(myTexture, new Rectangle((int)myPosition.X, (int)myPosition.Y, myTexture.Width, myTexture.Height), null, Color.White, myRotation, origin, SpriteEffects.None, 0f);
+            context.spriteBatch.Draw(myTexture, new Rectangle((int)myPosition.X, (int)myPosition.Y, myTexture.Width, myTexture.Height), null, Color.White * alphaMask, myRotation, origin, SpriteEffects.None, 0f);
         }
 
         public void Update(GameTime gameTime, Game1 context)
         {
             SetRotation(Mouse.GetState());
+            base.Update(gameTime, context);
         }
 
         protected Texture2D[] GetArmSprites()

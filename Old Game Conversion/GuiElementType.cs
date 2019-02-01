@@ -9,6 +9,7 @@ namespace Old_Game_Conversion
     enum GuiElementType
     {
         button = 0,
-        label = 1
+        label = 1,
+        mask = 2
     }
 }
