@@ -13,7 +13,7 @@ namespace Old_Game_Conversion
         protected GuiElementType elementType;
         protected Vector2 position;
         protected string text;
-        protected Color textColor;
+        protected Color textColor = Color.Black;
         protected Game1 context;
 
         public GuiElementType GetType()

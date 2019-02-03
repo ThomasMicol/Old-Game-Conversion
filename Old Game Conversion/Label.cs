@@ -9,8 +9,9 @@ namespace Old_Game_Conversion
 {
     class Label : GuiElement
     {
-
         protected GuiElementType elementType = GuiElementType.label;
+
+        public void SetText(string aText) { text = aText; }
         
         public override void Draw(GameTime gameTime, Game1 context)
         {

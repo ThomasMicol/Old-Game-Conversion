@@ -43,7 +43,6 @@ namespace Old_Game_Conversion.Loot_State_Items
 
         public override void Draw(GameTime gameTime, Game1 context)
         {
-            
             context.spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height), Color.White); 
             base.Draw(gameTime, context);
         }
