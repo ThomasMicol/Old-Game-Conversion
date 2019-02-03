@@ -10,6 +10,7 @@ namespace Old_Game_Conversion
 {
     class InteractionSet
     {
+        protected Game1 context;
         protected List<GuiElement> guiElements;
         protected static List<string> lastButtonPressed = new List<string>();
 
@@ -40,7 +41,8 @@ namespace Old_Game_Conversion
                     }
                 }
             }
-
+            if (!CheckLastButtonPressed(Keys.L) && Keyboard.GetState().IsKeyDown(Keys.L))
+                game.stateManager.ChangeState(StateEnum.LootState);
             if (!CheckLastButtonPressed(Keys.Escape) && Keyboard.GetState().IsKeyDown(Keys.Escape))
                 game.Exit();
             

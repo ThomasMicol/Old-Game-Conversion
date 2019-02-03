@@ -14,6 +14,7 @@ namespace Old_Game_Conversion
         protected Vector2 position;
         protected string text;
         protected Color textColor;
+        protected Game1 context;
 
         public GuiElementType GetType()
         {

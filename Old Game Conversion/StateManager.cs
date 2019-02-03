@@ -43,7 +43,7 @@ namespace Old_Game_Conversion
 
         public InteractionSet GetStateInteractions()
         {
-            return interactionFactory.GetInteractionSet(state);
+            return interactionFactory.GetInteractionSet(state, context);
         }
 
         public void CheckInteractions()

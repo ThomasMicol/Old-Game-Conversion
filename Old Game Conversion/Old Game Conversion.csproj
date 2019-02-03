@@ -77,8 +77,10 @@
     <Compile Include="Loot State Items\BattleGainIterable.cs" />
     <Compile Include="Loot State Items\ContinueButton.cs" />
     <Compile Include="Loot State Items\ExpGainedBars.cs" />
+    <Compile Include="Loot State Items\ExpGainedIterable.cs" />
     <Compile Include="Loot State Items\IterableFrameElement.cs" />
     <Compile Include="Loot State Items\LootGainedBoxes.cs" />
+    <Compile Include="Loot State Items\LootGainedIterable.cs" />
     <Compile Include="Loot State Items\LootScreenFrame.cs" />
     <Compile Include="Loot State Items\LootVictoryLabel.cs" />
     <Compile Include="Menu Items\ExitButton.cs" />

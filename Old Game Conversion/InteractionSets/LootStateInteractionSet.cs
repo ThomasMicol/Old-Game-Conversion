@@ -13,11 +13,13 @@ namespace Old_Game_Conversion.InteractionSets
     {
         protected BattleReport report;
 
-        public LootStateInteractionSet()
+        public LootStateInteractionSet(Game1 aContext)
         {
+            context = aContext;
+            context.stateManager.gameStats.EndBattleReport();
             guiElements = new List<GuiElement>()
             {
-                new LootScreenFrame(new Vector2(50, 50)) //TODO: convert absolute placement to relative
+                new LootScreenFrame(new Vector2(50, 50), context) //TODO: convert absolute placement to relative
             };
 
         }

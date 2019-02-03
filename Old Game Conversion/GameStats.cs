@@ -50,6 +50,7 @@ namespace Old_Game_Conversion.Game_Items
         public void EndBattleReport()
         {
             EvaluateBattleReport();
+            battleHistory.Add(currentBattle);
             currentBattle = null;
         }
 

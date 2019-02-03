@@ -1,4 +1,5 @@
-﻿using Old_Game_Conversion.Game_Items;
+﻿using Microsoft.Xna.Framework.Graphics;
+using Old_Game_Conversion.Game_Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace Old_Game_Conversion.Loot_State_Items
     {
         protected BattleReport myReport;
 
-        public ExpGainedBars(BattleReport aReport, GameStats aGameStats)
+        public ExpGainedBars(BattleReport aReport, GameStats aGameStats, Game1 aContext)
         {
+            context = aContext;
             myReport = aReport;
+            texture = context.Content.Load<Texture2D>("clear");
         }
     }
 }

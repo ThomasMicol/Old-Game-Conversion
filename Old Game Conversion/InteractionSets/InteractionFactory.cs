@@ -9,8 +9,11 @@ namespace Old_Game_Conversion
 {
     class InteractionFactory
     {
-        public InteractionSet GetInteractionSet(StateEnum state)
+        protected Game1 context;
+
+        public InteractionSet GetInteractionSet(StateEnum state, Game1 aContext)
         {
+            context = aContext;
             switch (state)
             {
                 case StateEnum.MenuState:
@@ -22,7 +25,7 @@ namespace Old_Game_Conversion
                 case StateEnum.DeathState:
                     return new DeathStateInteractionSet();
                 case StateEnum.LootState:
-                    return new LootStateInteractionSet();
+                    return new LootStateInteractionSet(context);
                 default:
                     return new MenuInteractionSet();
             }

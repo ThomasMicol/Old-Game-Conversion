@@ -14,9 +14,10 @@ namespace Old_Game_Conversion.Loot_State_Items
         protected BattleReport myReport;
         protected SpriteFont font;
 
-        public LootVictoryLabel(BattleReport report, GameStats aGameStats)
+        public LootVictoryLabel(BattleReport report, GameStats aGameStats, SpriteFont aFont)
         {
             myReport = report;
+            font = aFont;
             text = GenerateText();
         }
 
@@ -29,7 +30,7 @@ namespace Old_Game_Conversion.Loot_State_Items
 
         public override void SetPosition(Rectangle frameBounds)
         {
-            position = new Vector2((frameBounds.Width / 2) - font.MeasureString(text).X, frameBounds.Y + 40);
+            position = new Vector2((frameBounds.Width / 2) - (font.MeasureString(text).X / 2), frameBounds.Y + 40);
         }
 
         protected string GenerateText()
