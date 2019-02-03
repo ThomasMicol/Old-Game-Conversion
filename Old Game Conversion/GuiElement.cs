@@ -25,10 +25,9 @@ namespace Old_Game_Conversion
             return text;
         }
 
-        public Vector2 GetPosition()
-        {
-            return position;
-        }
+        public Vector2 GetPosition() { return position; }
+        public virtual void SetPosition(Vector2 aPosition) { position = aPosition; }
+        public virtual void SetPosition(Rectangle frameBounds) { }
 
         public Color GetColor()
         {

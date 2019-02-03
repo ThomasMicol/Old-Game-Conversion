@@ -74,8 +74,10 @@
     <Compile Include="InteractionSets\LootStateInteractionSet.cs" />
     <Compile Include="InventoryElement.cs" />
     <Compile Include="ItemEnum.cs" />
+    <Compile Include="Loot State Items\BattleGainIterable.cs" />
     <Compile Include="Loot State Items\ContinueButton.cs" />
     <Compile Include="Loot State Items\ExpGainedBars.cs" />
+    <Compile Include="Loot State Items\IterableFrameElement.cs" />
     <Compile Include="Loot State Items\LootGainedBoxes.cs" />
     <Compile Include="Loot State Items\LootScreenFrame.cs" />
     <Compile Include="Loot State Items\LootVictoryLabel.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="InteractionSets\GameInteractionSet.cs" />
     <Compile Include="GuiElement.cs" />
     <Compile Include="GuiElementType.cs" />
+    <Compile Include="Menu Items\Frame.cs" />
     <Compile Include="Menu Items\HelpButton.cs" />
     <Compile Include="InteractionSets\InteractionFactory.cs" />
     <Compile Include="InteractionSets\InteractionSet.cs" />

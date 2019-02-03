@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Old_Game_Conversion.Loot_State_Items
 {
-    class ContinueButton
+    class ContinueButton : GuiElement
     {
     }
 }

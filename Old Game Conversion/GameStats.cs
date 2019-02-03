@@ -19,6 +19,11 @@ namespace Old_Game_Conversion.Game_Items
             context = aContext;
         }
 
+        public BattleReport GetLastReport()
+        {
+            return battleHistory[battleHistory.Count - 1];
+        }
+
         public int GetItemAmount(ItemEnum itemType)
         {
             foreach(InventoryElement item in inventory)
